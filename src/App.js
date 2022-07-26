@@ -1,56 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getText } from "./features/reverseText";
 
 function App() {
+  const [input, setInput] = useState("");
+  const textReverse = useSelector((state) => state.text);
+  const dispatch = useDispatch();
+
+  const handeleReverseText = (e) => {
+    if (!input) return;
+    dispatch(getText(input));
+    setInput("");
+    e.preventDefault();
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <>
+        <h1>Copywrite APP - Montini Franco</h1>
+        <form>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            required="required"
+            placeholder="Enter Text"
+          ></input>
+          <button onClick={(e) => handeleReverseText(e)} role="presentation">
+            Send
+          </button>
+        </form>
+      </>
+      <>
+        <h2>Reverse Texts</h2>
+        <ul>
+          {textReverse.status === "success" ? (
+            textReverse.text.map((el) => {
+              return (
+                <li key={Math.random() * 33 + Date.now()}>
+                  <p>{el.text}</p>
+                  {el.palindrome ? (
+                    <p>"Palindrome!"</p>
+                  ) : (
+                    <p>"Not palindrome!"</p>
+                  )}
+                </li>
+              );
+            })
+          ) : (
+            <li>
+              <p>No texts</p>
+            </li>
+          )}
+        </ul>
+      </>
     </div>
   );
 }
