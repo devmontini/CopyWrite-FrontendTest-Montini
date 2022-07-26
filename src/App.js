@@ -40,7 +40,7 @@ function App() {
           <Card.Body>
             <Card.Title className="mb-6">List</Card.Title>
             {textReverse.status === "success" ? (
-              sortText.reverse().map((el) => {
+              sortText.map((el) => {
                 return (
                   <Card.Subtitle
                     className="m-4"
