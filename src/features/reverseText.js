@@ -3,9 +3,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getText = createAsyncThunk(
   "/iecho?text=",
   async (dispatch, getState) => {
-    return await fetch(`http://localhost:3001/iecho?text=${dispatch}`).then(
-      (res) => res.json()
-    );
+    return await fetch(
+      `https://copywrite-backend-montini.herokuapp.com/iecho?text=${dispatch}`
+    ).then((res) => res.json());
   }
 );
 
