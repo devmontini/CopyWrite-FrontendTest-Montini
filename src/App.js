@@ -10,6 +10,8 @@ function App() {
   const textReverse = useSelector((state) => state.text);
   const dispatch = useDispatch();
 
+  const textSort = textReverse.text.split().reverse().join();
+
   const handeleReverseText = (e) => {
     if (!input) return;
     dispatch(getText(input));
@@ -38,7 +40,7 @@ function App() {
           <Card.Body>
             <Card.Title className="mb-6">List</Card.Title>
             {textReverse.status === "success" ? (
-              textReverse.text.map((el) => {
+              textSort.map((el) => {
                 return (
                   <Card.Subtitle
                     className="m-4"
