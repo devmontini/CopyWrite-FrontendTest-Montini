@@ -10,13 +10,13 @@ El JavaScript challenge para Full Stack por `Franco Montini`[devMontini](https:/
 
 Un App cliente en React que permita enviar textos a la API del punto anterior y muestre las respuestas del API desde la ultima a la primera.
 [Repo](https://github.com/devmontini/CopyWrite-FrontendTest-Montini)
-[Deploy](https://github.com/facebook/create-react-app)
+[Deploy](https://copy-write-frontend-test-montini.vercel.app/)
 
 ### Librerias y Frameworks utilizadas:
 
-[Webpack](https://webpack.js.org/)
-[Bootstrap](https://getbootstrap.com/)
 [React](https://reactjs.org/)
+[Bootstrap](https://getbootstrap.com/)
+[Webpack](https://webpack.js.org/)
 [Redux](https://redux.js.org/)
 [Jest](https://jestjs.io/)
 
