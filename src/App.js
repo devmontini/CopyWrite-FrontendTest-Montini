@@ -10,7 +10,8 @@ function App() {
   const textReverse = useSelector((state) => state.text);
   const dispatch = useDispatch();
 
-  let sortText = textReverse.text.reverse();
+  const compyText = [...textReverse.text];
+  const sortText = compyText.reverse();
 
   const handeleReverseText = (e) => {
     if (!input) return;
@@ -57,6 +58,10 @@ function App() {
                   </Card.Subtitle>
                 );
               })
+            ) : textReverse.status === "loading" ? (
+              <Card.Subtitle className="m-4 text-muted">
+                LOADING...
+              </Card.Subtitle>
             ) : (
               <Card.Subtitle className="m-4 text-muted">No texts</Card.Subtitle>
             )}
